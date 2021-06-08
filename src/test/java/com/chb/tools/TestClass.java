@@ -9,6 +9,7 @@ public class TestClass {
         System.out.println(ADLogin.IV("900038","!zml941025"));
     }
     @Test
+    //测试程序
     public void test(){
         int [][] arr=new int[][]{{4,5,6},{2,3,9}};
         int [][] arrtrans=new int[arr[0].length][arr.length];
