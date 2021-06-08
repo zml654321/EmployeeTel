@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chb.dao.PostMapper">
+    <!--根据lev查询Post-->
+    <select id="queryPostByLev" parameterType="int" resultType="com.chb.pojo.Post">
+    select * from post where lev=#{lev}
+    </select>
+    <!--根据before_id查询Post-->
+    <select id="queryPostByBefore_id" parameterType="int" resultType="com.chb.pojo.Post">
+    select * from post where before_id=#{before_id}
+    </select>
+</mapper>

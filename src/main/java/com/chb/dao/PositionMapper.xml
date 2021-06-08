@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chb.dao.PositionMapper">
+<select id="queryAllPosition" resultType="String">
+    select  distinct position_name from position order by order_level desc
+</select>
+    <select id="queryPositionByName" resultType="com.chb.pojo.Position">
+        select * from position where position_name=#{name}
+    </select>
+    <select id="queryOrder_levelById" resultType="com.chb.pojo.Position">
+        select * from position where id=#{id}
+    </select>
+</mapper>

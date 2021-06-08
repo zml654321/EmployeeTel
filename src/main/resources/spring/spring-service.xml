@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--扫描service相关的bean-->
+    <context:component-scan base-package="com.chb.service"/>
+    <!--TelServiceImpl注入到IOC容器中-->
+    <bean id="TelServiceImpl" class="com.chb.service.TelServiceImpl">
+        <property name="telMapper" ref="telMapper"/>
+    </bean>
+    <bean id="PostServiceImpl" class="com.chb.service.PostServiceImpl">
+        <property name="postMapper" ref="postMapper"/>
+    </bean>
+    <bean id="PositionServiceImpl" class="com.chb.service.PositionServiceImpl">
+        <property name="positionMapper" ref="positionMapper"/>
+    </bean>
+    <bean id="DeptServiceImpl" class="com.chb.service.DeptServiceImpl">
+        <property name="deptMapper" ref="deptMapper"/>
+    </bean>
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--注入数据库连接池-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+</beans>

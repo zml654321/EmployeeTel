@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chb.dao.TelMapper">
+<!--增加一个Tel-->
+    <insert id="addTel" parameterType="com.chb.pojo.Tel">
+        insert into employee.tel(staff_id,dept_id,dept_name,enter_date,sex,emp_name,post,level,manger_level,tel,operate_grade)
+        values (#{staff_id},#{dept_id},#{dept_name},#{enter_date},#{sex},#{emp_name},#{post},#{level},#{manger_level},#{tel},#{operate_grade} )
+    </insert>
+    <!--根基id删除一个Tel-->
+    <delete id="deleteTelById" parameterType="int">
+        delete from employee.tel where id=#{id}
+    </delete>
+    <!--更新Tel-->
+    <update id="updateTel" parameterType="com.chb.pojo.Tel">
+        update employee.tel
+        set staff_id=#{staff_id},dept_id=#{dept_id},dept_name=#{dept_name},enter_date=#{enter_date},sex=#{sex},emp_name=#{emp_name},post=#{post},level=#{level},manger_level=#{manger_level},tel=#{tel},operate_grade=#{operate_grade}
+        where id=#{id}
+    </update>
+    <!--根据用户id查询电话信息-->
+    <select id="queryTelById" resultType="com.chb.pojo.Tel">
+        select * from employee.tel where id=#{id}
+    </select>
+    <!--查询全部Tel-->
+    <select id="queryAllTel" resultType="com.chb.pojo.Tel">
+        select * from employee.tel order by manger_level desc
+    </select>
+    <!--根据员工编号查询员工所在部门所有员工电话信息-->
+    <select id="queryDeptAllTelByStaff_id" resultType="com.chb.pojo.Tel">
+        select * from employee.tel order by manger_level desc where dept_id in(select dept_id from employee.tel where staff_id=#{staff_id})
+    </select>
+    <!--根据员工编号查询员工所具有的操作权限-->
+    <select id="queryOperate_grade" resultType="String">
+        select operate_grade from employee.tel where staff_id=#{staff_id}
+    </select>
+    <select id="queryDeptInfo" resultType="String">
+        select distinct dept_id from employee.tel
+    </select>
+    <select id="queryInfoByInfo" resultType="com.chb.pojo.Tel">
+        select * from employee.tel
+        where
+        (dept_id=#{dept_id} or #{dept_id}='')
+        and
+        (
+        instr(#{info},staff_id)>0
+        or
+        instr(#{info},emp_name)>0
+        or
+        instr(#{info},tel)>0
+        or
+        #{info}=''
+        )
+        order by manger_level desc
+    </select>
+    <select id="queryAllDept" resultType="com.chb.pojo.Dept">
+        select distinct dept_id,dept_name
+        from  tel
+        order by dept_id asc
+    </select>
+    <select id="queryTelByName" resultType="com.chb.pojo.Tel">
+        select * from tel where emp_name=#{name}
+    </select>
+</mapper>
