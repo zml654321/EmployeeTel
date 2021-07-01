@@ -43,6 +43,7 @@ public class LoginController {
                 session.setAttribute("level","1");
                 session.setAttribute("user",username);
                 List<Tel> list=telService.queryDeptAllByStaff_id(username);
+                model.addAttribute("operate_grade","1");
                 model.addAttribute("list",list);
                 model.addAttribute("username",username);
                 return "success";

@@ -21,6 +21,12 @@
                 oTable.rows[i].cells[0].innerHTML = (i);
 
             }
+            var operate_grade=[[${operate_grade}]];
+            if(operate_grade=="1"){
+                document.getElementById("deptSelect").style.display ='none';
+            }else {
+                document.getElementById("deptSelect").style.display ='inline';
+            }
             $.post("${pageContext.request.contextPath}/ajax/a3",function (data) {
                 console.log(data);
                 var html="";

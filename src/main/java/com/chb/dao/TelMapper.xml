@@ -28,7 +28,7 @@
     </select>
     <!--根据员工编号查询员工所在部门所有员工电话信息-->
     <select id="queryDeptAllTelByStaff_id" resultType="com.chb.pojo.Tel">
-        select * from employee.tel order by manger_level desc where dept_id in(select dept_id from employee.tel where staff_id=#{staff_id})
+        select * from employee.tel where dept_id in(select dept_id from employee.tel where staff_id=#{staff_id}) order by manger_level desc
     </select>
     <!--根据员工编号查询员工所具有的操作权限-->
     <select id="queryOperate_grade" resultType="String">
