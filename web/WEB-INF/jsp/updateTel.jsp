@@ -284,10 +284,30 @@
                 </select>
                 </div>
             </div>
+            职位：
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="text" id="post1" value="${tel.getPost()}" name="level" class="form-control" readonly>
+                </div>
+                <div class="col-md-1">
+                    <input type="button" value="变更" class="form-control" onclick="changeLevel()">
+                </div>
+                <div class="col-md-3">
+                    <select id="position_name" class="form-control">
+                        <option>请选择</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select id="position_level"  class="form-control">
+                        <option>请选择</option>
+                    </select>
+                </div>
+            </div>
+
             岗位：
             <div class="row">
                 <div class="col-md-3">
-                    <input type="text" id="post1" value="${tel.getPost()}" name="post" readonly class="form-control">
+                    <input type="text" id="level" value="${tel.getLevel()}" name="post" readonly class="form-control">
                 </div>
                 <div class="col-md-1">
                     <input type="button" value="变更" class="form-control" onclick="changePost()">
@@ -313,26 +333,6 @@
                     </select>
                 </div>
             </div>
-            职位：
-            <div class="row">
-                <div class="col-md-3">
-                    <input type="text" id="level" value="${tel.getLevel()}" name="level" class="form-control" readonly>
-                </div>
-                <div class="col-md-1">
-                    <input type="button" value="变更" class="form-control" onclick="changeLevel()">
-                </div>
-                <div class="col-md-3">
-                    <select id="position_name" class="form-control">
-                        <option>请选择</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select id="position_level"  class="form-control">
-                        <option>请选择</option>
-                    </select>
-                </div>
-            </div>
-
             分机：
             <div class="row">
                 <div class="col-md-3">

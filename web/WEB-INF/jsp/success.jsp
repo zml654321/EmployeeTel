@@ -110,8 +110,8 @@
                     <th class="col-md-1">员工编号</th>
                     <th class="col-md-2">部门名称</th>
                     <th class="col-md-1">部门代号</th>
-                    <th class="col-md-1">职位</th>
                     <th class="col-md-1">岗位</th>
+                    <th class="col-md-1">职位</th>
                     <th class="col-md-2">分机</th>
                     <th class="col-md-2">操作</th>
                 </tr>
